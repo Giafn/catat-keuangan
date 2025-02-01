@@ -35,6 +35,11 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // email harus giafauzan11@gmail.com / najaqisti27@gmail.com
+        if (!in_array($request->email, ['giafauzan11@gmail.com', 'najaqisti27@gmail.com'])) {
+            return back()->with('error', 'Email yang anda masukkan tidak valid');
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
