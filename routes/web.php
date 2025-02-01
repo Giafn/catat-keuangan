@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('transaksis/create/{tabunganId}', [TransaksiController::class, 'create'])->name('transaksis.create');
     Route::post('transaksis/store/{tabunganId}', [TransaksiController::class, 'store'])->name('transaksis.store');
+    Route::get('transaksis/{id}', [TransaksiController::class, 'show'])->name('transaksis.show');
+    Route::delete('transaksis/{id}', [TransaksiController::class, 'destroy'])->name('transaksis.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -40,6 +40,7 @@
                     </a>
                 </div>
                 @forelse($transaksis as $transaksi)
+                <a href="/transaksis/{{ $transaksi->id }}" class="block">
                     <div class="bg-white rounded-lg overflow-hidden mt-3 px-3 py-2">
                         <div class="flex justify-between">
                             <div class="font-medium">
@@ -56,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 @empty
                     <p class="text-center">Belum ada transaksi</p>
                 @endforelse

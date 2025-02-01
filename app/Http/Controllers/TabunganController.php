@@ -29,6 +29,9 @@ class TabunganController extends Controller
     public function show($id)
     {
         $tabungan = Tabungan::where('id', $id)->first();
+        if (!$tabungan) {
+            return abort(404);
+        }
 
         $tabungan->saldo = $tabungan->saldo()['total'];
         $tabungan->pengeluaran = $tabungan->saldo()['pengeluaran'];
@@ -61,6 +64,9 @@ class TabunganController extends Controller
     public function edit($id)
     {
         $tabungan = Tabungan::where('id', $id)->first();
+        if (!$tabungan) {
+            return abort(404);
+        }
         return view('tabungans.edit', compact('tabungan'));
     }
 
@@ -72,6 +78,9 @@ class TabunganController extends Controller
         ]);
 
         $tabungan = Tabungan::where('id', $id)->first();
+        if (!$tabungan) {
+            return abort(404);
+        }
         $tabungan->update($request->all());
 
         return redirect()->route('tabungans.edit', ['id' => $tabungan->id]);
@@ -80,6 +89,9 @@ class TabunganController extends Controller
     public function destroy($id)
     {
         $tabungan = Tabungan::where('id', $id)->first();
+        if (!$tabungan) {
+            return abort(404);
+        }
         try {
             DB::beginTransaction();
             $tabungan->transaksis()->delete();

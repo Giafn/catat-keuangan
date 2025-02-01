@@ -26,10 +26,10 @@
                     <a href="/" class="text-2xl font-bold text-blue-600">
                         Aplikasi Tabungan
                     </a>
-                </div>
-                <div class="w-full px-4">
-                    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                        {{ $slot }}
+                    <div class="w-5/6 md:w-3/6 lg:w-2/6">
+                        <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded-lg">
+                            {{ $slot }}
+                        </div>
                     </div>
                 </div>
             </div>
