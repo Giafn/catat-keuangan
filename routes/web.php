@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TabunganController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::post('transaksis/store/{tabunganId}', [TransaksiController::class, 'store'])->name('transaksis.store');
     Route::get('transaksis/{id}', [TransaksiController::class, 'show'])->name('transaksis.show');
     Route::delete('transaksis/{id}', [TransaksiController::class, 'destroy'])->name('transaksis.destroy');
+
+    Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
 });
 
 require __DIR__.'/auth.php';

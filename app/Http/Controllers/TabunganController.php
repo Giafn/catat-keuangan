@@ -56,7 +56,14 @@ class TabunganController extends Controller
             'deskripsi' => 'nullable|string',
         ]);
 
-        Tabungan::create($request->all());
+        try {
+            DB::beginTransaction();
+            Tabungan::create($request->all());
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Terjadi kesalahan');
+        }
 
         return redirect()->route('tabungans.index');
     }
@@ -81,7 +88,15 @@ class TabunganController extends Controller
         if (!$tabungan) {
             return abort(404);
         }
-        $tabungan->update($request->all());
+        
+        try {
+            DB::beginTransaction();
+            $tabungan->update($request->all());
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Terjadi kesalahan');
+        }
 
         return redirect()->route('tabungans.edit', ['id' => $tabungan->id]);
     }

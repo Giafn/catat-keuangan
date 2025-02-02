@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <div class="p-5">
         <div class="flex justify-between">
             <a href="/">
@@ -6,31 +7,22 @@
                     <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
                 </svg>
             </a>
-            <h1 class="text-xl font-bold text-center mb-4">Profile Setting</h1>
+            <h1 class="text-xl font-bold text-center mb-4">Setting</h1>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+                    <div class="flex items-center justify-center flex-col space-y-4">
+                        <img src="/img/under-construction.svg" alt="Under Construction" class="w-full">
+                        <span class="font-semibold">This feature is under construction!</span>
+                    </div>
                 </div>
             </div>
-
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+                    @include('profile.partials.delete-user-form')
                 </div>
             </div>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <a href="route('logout')"
-                        onclick="event.preventDefault();
-                                    this.closest('form').submit();" 
-                        class="block w-full px-4 py-2 text-sm text-center text-white bg-red-500 rounded-md hover:bg-red-600">
-                    {{ __('Log Out') }}
-                </a>
-            </form>
         </div>
     </div>
 </x-app-layout>
