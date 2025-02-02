@@ -34,7 +34,7 @@
             <div class="mb-4">
                 <p class="block text-sm font-medium text-gray-700">Tanggal</p>
                 <div class="flex items-center mt-1">
-                    <p class="text-gray-500">{{ \Carbon\Carbon::parse($transaksi->tanggal)->format('d-m-Y') }}</p>
+                    <p class="text-gray-500">{{ date('d M Y', strtotime($transaksi->tanggal)) }}</p>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 <form action="{{ route('transaksis.destroy', $transaksi->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this transaction?');">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">
+                    <button class="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600" onclick="preventDefault(); confirm('Are you sure you want to delete this transaction?') ? this.parentElement.submit() : false">
                         Hapus Transaksi
                     </button>
                 </form>

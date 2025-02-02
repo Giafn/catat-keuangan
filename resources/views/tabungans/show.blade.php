@@ -48,7 +48,7 @@
                                 <p class="text-lg text-{{ $transaksi->jenis == 'pemasukan' ? 'blue' : 'red' }}-600">{{ $transaksi->jenis == 'pemasukan' ? '+' : '-' }} Rp. {{ number_format($transaksi->jumlah) }}</p>
                             </div>
                             <div class="font-medium text-gray-500">
-                                <p class="text-sm">{{ $transaksi->tanggal }}</p>
+                                <p class="text-sm">{{ date('d M Y', strtotime($transaksi->tanggal)) }}</p>
                             </div>
                         </div>
                         <div class="flex justify-between">

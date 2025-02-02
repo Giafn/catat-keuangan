@@ -26,7 +26,7 @@
 
                 <a href="route('logout')"
                         onclick="event.preventDefault();
-                                    this.closest('form').submit();" 
+                                    confirm('Are you sure you want to log out?') ? this.parentElement.submit() : false;"
                         class="block w-full px-4 py-2 text-sm text-center text-white bg-red-500 rounded-md hover:bg-red-600">
                     {{ __('Log Out') }}
                 </a>

@@ -14,15 +14,15 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5 col-span-2">
                     <h3 class="text-lg">Tabungan</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($totalSaldo) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($totalSaldo) }}</p>
                 </div>
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5">
                     <h3 class="text-lg">Pengeluaran</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($totalPengeluaran) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($totalPengeluaran) }}</p>
                 </div>
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5">
                     <h3 class="text-lg">Pemasukan</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($totalPemasukan) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($totalPemasukan) }}</p>
                 </div>
             </div>
             <div class="mt-5">
@@ -35,7 +35,7 @@
                                 <p class="text-lg text-{{ $transaksi->jenis == 'pemasukan' ? 'blue' : 'red' }}-600">{{ $transaksi->jenis == 'pemasukan' ? '+' : '-' }} Rp. {{ number_format($transaksi->jumlah) }}</p>
                             </div>
                             <div class="font-medium text-gray-500">
-                                <p class="text-sm">{{ $transaksi->tanggal }}</p>
+                                <p class="text-sm">{{ date('d M Y', strtotime($transaksi->tanggal)) }}</p>
                             </div>
                         </div>
                         <div class="flex justify-between">
