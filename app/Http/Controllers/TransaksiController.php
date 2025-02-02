@@ -48,7 +48,10 @@ class TransaksiController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan');
         }
 
-        return redirect()->route('tabungans.show', $request->tabungan_id);
+        return view('page.success', [
+            'url' => route('tabungans.show', $request->tabungan_id),
+            'pageName' => 'Halaman Tabungan'
+        ]);
     }
 
     // edit dan update
@@ -87,11 +90,5 @@ class TransaksiController extends Controller
         }
 
         return redirect()->route('tabungans.show', $tabunganId)->with('success', 'Transaksi berhasil dihapus');
-    }
-
-    public function index()
-    {
-        $transaksis = Transaksi::with('tabungan')->get();
-        return view('transaksis.index', compact('transaksis'));
     }
 }

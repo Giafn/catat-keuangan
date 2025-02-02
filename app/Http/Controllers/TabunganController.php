@@ -65,7 +65,7 @@ class TabunganController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan');
         }
 
-        return redirect()->route('tabungans.index');
+        return redirect()->route('tabungans.index')->with('success', 'Tabungan berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -98,7 +98,7 @@ class TabunganController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan');
         }
 
-        return redirect()->route('tabungans.edit', ['id' => $tabungan->id]);
+        return redirect()->route('tabungans.edit', ['id' => $tabungan->id])->with('success', 'Tabungan berhasil diubah');
     }
 
     public function destroy($id)
@@ -117,6 +117,6 @@ class TabunganController extends Controller
             return redirect()->route('tabungans.index')->with('error', 'Tabungan gagal dihapus karena terdapat transaksi yang terkait');
         }
 
-        return redirect()->route('tabungans.index');
+        return redirect()->route('tabungans.index')->with('success', 'Tabungan berhasil dihapus');
     }
 }

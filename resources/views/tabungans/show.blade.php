@@ -19,15 +19,15 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5 col-span-2">
                     <h3 class="text-lg">Tabungan</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($tabungan->saldo) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($tabungan->saldo) }}</p>
                 </div>
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5">
                     <h3 class="text-lg">Pengeluaran</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($tabungan->pengeluaran) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($tabungan->pengeluaran) }}</p>
                 </div>
                 <div class="bg-blue-500 text-white rounded-lg shadow-md p-5">
                     <h3 class="text-lg">Pemasukan</h3>
-                    <p class="text-xl font-bold">Rp. {{ number_format($tabungan->pemasukan) }}</p>
+                    <p class="text-xl font-bold break-words">Rp. {{ number_format($tabungan->pemasukan) }}</p>
                 </div>
             </div>
             <div class="mt-5">
