@@ -33,6 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('transaksis/{id}', [TransaksiController::class, 'destroy'])->name('transaksis.destroy');
 
     Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+
+    Route::get('success-transaction', function () {
+        return view('page.success');
+    })->name('success');
 });
 
 require __DIR__.'/auth.php';

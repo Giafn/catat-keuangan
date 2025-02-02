@@ -48,10 +48,11 @@ class TransaksiController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan');
         }
 
-        return view('page.success', [
-            'url' => route('tabungans.show', $request->tabungan_id),
-            'pageName' => 'Halaman Tabungan'
-        ]);
+        return redirect()->route('success')
+                     ->with([
+                         'urlRedirect' => route('tabungans.show', $request->tabungan_id),
+                         'pageName' => 'Halaman Tabungan',
+                     ]);
     }
 
     // edit dan update
